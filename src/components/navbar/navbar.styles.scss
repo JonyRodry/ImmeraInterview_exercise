@@ -1,0 +1,59 @@
+.navbar{
+    width: 100vw;
+    height: 100px;
+    background-color: black;
+    margin: 0;
+    padding: 0 5% 0 5%;
+
+    .navbar-row{
+        width: 100%;
+    
+        .navbar-logo{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .navbar-options{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            a{
+                color: white;
+                font-weight: 500;
+                text-decoration: none;     
+            }
+
+            a:hover{
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        }
+
+        .navbar-searchBar{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            button{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                height: 35px;
+                min-width: 35px;
+                width: auto;
+                border: none;
+            }
+
+            input{
+                width: 300px;
+                margin-left: 10px;
+                background-color: transparent;
+                border: none;
+            }
+        }
+    }
+}
