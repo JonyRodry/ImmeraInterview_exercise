@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';  
@@ -11,6 +11,8 @@ import "./navbar.styles.scss"
 
 function Navbar(){
 
+    const ref = useRef(null);
+
     // Função do Btn: false - para abrir o input || true -  para pesquisar
     const[estadoBtn, setEstadoBtn] = useState(false);
 
@@ -19,6 +21,21 @@ function Navbar(){
 
     // Valor para i
     const[valueInput, setValueInput] = useState("")
+
+    // Verifica quando se carrega fora do input
+    useEffect(() => {
+        const handleOutSideClick = (event) => {
+            if (!ref.current?.contains(event.target) && displayInput === true) {
+                console.log("ENTREI");
+                setDisplayInput(false);
+                setEstadoBtn(false);
+            }
+        };
+        window.addEventListener("mousedown", handleOutSideClick);
+        return () => {
+            window.removeEventListener("mousedown", handleOutSideClick);
+        };
+    }, [ref, displayInput]);
     
     const handleChange = (event) => {
         setValueInput(event.target.value);
@@ -27,25 +44,22 @@ function Navbar(){
     const handleKey = (event) => {
         if (event.key === 'Enter') {
             console.log("Search: " + valueInput)
-            updateStates(3);
+            setDisplayInput(false);
+            setEstadoBtn(false);
+            setValueInput("");
         }
     };
 
-    function updateStates(num){
-        setEstadoBtn(!estadoBtn);
-        setDisplayInput(!displayInput);
-        if(num === 3){
-            setValueInput("");
-        }
-    }
-
     function changeState(){
         if(estadoBtn === false){
-            updateStates(2);
+            setDisplayInput(true);
+            setEstadoBtn(true)
         }
         else{
             console.log("Search: " + valueInput)
-            updateStates(3);
+            setDisplayInput(false);
+            setEstadoBtn(false);
+            setValueInput("");
         }
     }
     
@@ -68,15 +82,16 @@ function Navbar(){
                 </Col>
                 <Col md='4' className="navbar-searchBar">
                     <button id="btn-searchBar">
-                        <img
-                            src={lupa}
-                            width="20px"
-                            height="20px"
-                            onClick={() => changeState()}
-                            alt="lupaIcon"
-                        />
+                        <div className="div-img" onClick={() => changeState()}>
+                            <img
+                                src={lupa}
+                                width="20px"
+                                height="20px"
+                                alt="lupaIcon"
+                            />
+                        </div>
                         {displayInput && (
-                            <input id="input-searchBar" placeholder="Search ..." onChange={handleChange} onKeyDown={handleKey}></input>  
+                            <input id="input-searchBar" placeholder="Search ..." onChange={handleChange} onKeyDown={handleKey} ref={ref}></input>  
                         )}
                         </button>
                 </Col>
