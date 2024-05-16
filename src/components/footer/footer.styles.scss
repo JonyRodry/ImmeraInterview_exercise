@@ -1,0 +1,47 @@
+.footer{
+    height: auto;
+    width: 100vw;
+    padding: 5% 20% 5% 20%;
+    background-color: black;
+
+    .footer-company{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        margin-bottom: 50px;
+
+        h1{
+            width: auto;
+            font-weight: 700;
+        }
+    }
+
+    .footer-links{
+
+        .col-links{
+            color: white;
+
+            h5{
+                font-weight: 600;
+            }
+
+            .list-links{
+                padding: 0 !important;
+
+                li{
+                    list-style: none;
+                    text-decoration: none;
+
+                    h5{
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+
+        .right{
+            text-align: right;
+        }
+    }
+}
