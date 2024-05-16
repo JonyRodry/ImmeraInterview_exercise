@@ -1,0 +1,32 @@
+.basicContent{
+    width: 100vw;
+    height: auto;
+    background-color: white;
+    margin: 0;
+    padding: 3% 20% 3% 20%;
+
+    .basicContent-row{
+        width: 100%;
+        margin-top: 5%;
+
+        .col-text{
+            color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            
+            .btn-text{
+                height: 40px;
+                width: 50%;
+                border: none;
+                background-color: #d9d9d9;
+                font-weight: 500;
+            }
+        }
+
+        .right{
+            text-align: right;
+            align-items: flex-end;
+        }
+    }
+}
