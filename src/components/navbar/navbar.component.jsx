@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Container from 'react-bootstrap/Container';
-import { Col, Row } from "react-bootstrap";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';  
 import { Link } from "react-router-dom";
 
 import logo from "../../assets/logo.jpg";
@@ -62,8 +63,8 @@ function Navbar(){
                     </Link>
                 </Col>
                 <Col md='4' className="navbar-options">
-                    <Link>Page 1</Link>
-                    <Link>Page 2</Link>
+                    <Link to="/">Page 1</Link>
+                    <Link to="/page2">Page 2</Link>
                 </Col>
                 <Col md='4' className="navbar-searchBar">
                     <button id="btn-searchBar">
