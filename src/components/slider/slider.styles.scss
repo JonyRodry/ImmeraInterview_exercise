@@ -1,0 +1,28 @@
+.slider{
+    
+    margin: 2% 5% 2% 5%;
+
+    .item-slide{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 35vh;
+        background: #d9d9d9;
+    }
+
+    .leftBtn {
+        height: 20px;
+        position: absolute;
+        left: 7%;
+        cursor: pointer;
+    }
+      
+    .rightBtn {
+        height: 20px;
+        position: absolute;
+        right: 7%;
+        cursor: pointer;
+    }
+}
+  
